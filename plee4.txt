@@ -1,0 +1,10 @@
+plee4: Student test program (counts equal angle brackets with closing $)
+<,>,$
+a,$
+S,Q,F
+S
+F
+S,~,~|Q,$
+Q,<,~|Q,a
+Q,>,a|Q,~
+Q,$,$|F,~

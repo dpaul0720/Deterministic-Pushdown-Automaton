@@ -1,0 +1,60 @@
+M3:Equal as and bs', with a final $
+Rule #1 : S,~,~|Q,$
+Rule #2 : Q,a,$|Q$a,$
+Rule #3 : Q$a,~,~|Q,a
+Rule #4 : Q,a,a|Qa,a
+Rule #5 : Qa,~,~|Q,a
+Rule #6 : Q,a,b|Q,~
+Rule #7 : Q,b,$|Q$b,$
+Rule #8 : Q$b,~,~|Q,b
+Rule #9 : Q,b,a|Q,~
+Rule #10 : Q,b,b|Qb,b
+Rule #11 : Qb,~,~|Q,b
+Rule #12 : Q,$,$|F,~
+
+
+String: a$
+Step 1 # Rule 1 : S a ~ | Q ['$']
+Step 2 # Rule 2 : Q a ['$'] | Q$a ['$']
+Step 3 # Rule 3 : Q$a $ ['$'] | Q ['a', '$']
+Rejected
+
+
+String: baa$
+Step 1 # Rule 1 : S b ~ | Q ['$']
+Step 2 # Rule 7 : Q b ['$'] | Q$b ['$']
+Step 3 # Rule 8 : Q$b a ['$'] | Q ['b', '$']
+Step 4 # Rule 6 : Q a ['b'] | Q ['$']
+Step 5 # Rule 2 : Q a ['$'] | Q$a ['$']
+Step 6 # Rule 3 : Q$a $ ['$'] | Q ['a', '$']
+Rejected
+
+
+String: abbab$
+Step 1 # Rule 1 : S a ~ | Q ['$']
+Step 2 # Rule 2 : Q a ['$'] | Q$a ['$']
+Step 3 # Rule 3 : Q$a b ['$'] | Q ['a', '$']
+Step 4 # Rule 9 : Q b ['a'] | Q ['$']
+Step 5 # Rule 7 : Q b ['$'] | Q$b ['$']
+Step 6 # Rule 8 : Q$b a ['$'] | Q ['b', '$']
+Step 7 # Rule 6 : Q a ['b'] | Q ['$']
+Step 8 # Rule 7 : Q b ['$'] | Q$b ['$']
+Step 9 # Rule 8 : Q$b $ ['$'] | Q ['b', '$']
+Rejected
+
+
+String: aaabbba$
+Step 1 # Rule 1 : S a ~ | Q ['$']
+Step 2 # Rule 2 : Q a ['$'] | Q$a ['$']
+Step 3 # Rule 3 : Q$a a ['$'] | Q ['a', '$']
+Step 4 # Rule 4 : Q a ['a'] | Qa ['a', '$']
+Step 5 # Rule 5 : Qa a ['a'] | Q ['a', 'a', '$']
+Step 6 # Rule 4 : Q a ['a'] | Qa ['a', 'a', '$']
+Step 7 # Rule 5 : Qa b ['a'] | Q ['a', 'a', 'a', '$']
+Step 8 # Rule 9 : Q b ['a'] | Q ['a', 'a', '$']
+Step 9 # Rule 9 : Q b ['a'] | Q ['a', '$']
+Step 10 # Rule 9 : Q b ['a'] | Q ['$']
+Step 11 # Rule 2 : Q a ['$'] | Q$a ['$']
+Step 12 # Rule 3 : Q$a $ ['$'] | Q ['a', '$']
+Rejected
+

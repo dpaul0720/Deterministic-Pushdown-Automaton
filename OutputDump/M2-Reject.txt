@@ -1,0 +1,46 @@
+M2: Simple Palindrome with trapping
+Rule #1 : A,a,~|A,a
+Rule #2 : A,b,~|A,b
+Rule #3 : A,c,~|F,~
+Rule #4 : F,a,a|F,~
+Rule #5 : F,b,b|F,~
+Rule #6 : F,c,~|T,~
+Rule #7 : F,a,b|T,~
+Rule #8 : F,b,a|T,~
+
+String: abba
+Step 1 # Rule 1 : A a ~ | A ['a']
+Step 2 # Rule 2 : A b ['a'] | A ['b', 'a']
+Step 3 # Rule 2 : A b ['b'] | A ['b', 'b', 'a']
+Step 4 # Rule 1 : A a ['b'] | A ['a', 'b', 'b', 'a']
+Rejected
+
+
+String: acb
+Step 1 # Rule 1 : A a ~ | A ['a']
+Step 2 # Rule 3 : A c ['a'] | F ['a']
+Step 3 # Rule 8 : F b ['a'] | T ~
+Rejected
+
+
+String: ca
+Step 1 # Rule 3 : A c ~ | F ~
+Rejected
+
+
+String: bbcba
+Step 1 # Rule 2 : A b ~ | A ['b']
+Step 2 # Rule 2 : A b ['b'] | A ['b', 'b']
+Step 3 # Rule 3 : A c ['b'] | F ['b', 'b']
+Step 4 # Rule 5 : F b ['b'] | F ['b']
+Step 5 # Rule 7 : F a ['b'] | T ~
+Rejected
+
+
+String: baccab
+Step 1 # Rule 2 : A b ~ | A ['b']
+Step 2 # Rule 1 : A a ['b'] | A ['a', 'b']
+Step 3 # Rule 3 : A c ['a'] | F ['a', 'b']
+Step 4 # Rule 6 : F c ['a'] | T ['a', 'b']
+Rejected
+

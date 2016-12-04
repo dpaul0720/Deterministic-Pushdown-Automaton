@@ -1,0 +1,52 @@
+plee4: Student test program
+Rule #1 : S,~,~|Q,$
+Rule #2 : Q,<,~|Q,a
+Rule #3 : Q,>,a|Q,~
+Rule #4 : Q,$,$|F,~
+
+
+String: <<>>$
+Step 1 # Rule 1 : S < ~ | Q ['$']
+Step 2 # Rule 2 : Q < ['$'] | Q ['a', '$']
+Step 3 # Rule 2 : Q < ['a'] | Q ['a', 'a', '$']
+Step 4 # Rule 3 : Q > ['a'] | Q ['a', '$']
+Step 5 # Rule 3 : Q > ['a'] | Q ['$']
+Step 6 # Rule 4 : Q $ ['$'] | F ~
+Accepted
+
+
+String: <<<>>>$
+Step 1 # Rule 1 : S < ~ | Q ['$']
+Step 2 # Rule 2 : Q < ['$'] | Q ['a', '$']
+Step 3 # Rule 2 : Q < ['a'] | Q ['a', 'a', '$']
+Step 4 # Rule 2 : Q < ['a'] | Q ['a', 'a', 'a', '$']
+Step 5 # Rule 3 : Q > ['a'] | Q ['a', 'a', '$']
+Step 6 # Rule 3 : Q > ['a'] | Q ['a', '$']
+Step 7 # Rule 3 : Q > ['a'] | Q ['$']
+Step 8 # Rule 4 : Q $ ['$'] | F ~
+Accepted
+
+
+String: <<<<<<>>$
+Step 1 # Rule 1 : S < ~ | Q ['$']
+Step 2 # Rule 2 : Q < ['$'] | Q ['a', '$']
+Step 3 # Rule 2 : Q < ['a'] | Q ['a', 'a', '$']
+Step 4 # Rule 2 : Q < ['a'] | Q ['a', 'a', 'a', '$']
+Step 5 # Rule 2 : Q < ['a'] | Q ['a', 'a', 'a', 'a', '$']
+Step 6 # Rule 2 : Q < ['a'] | Q ['a', 'a', 'a', 'a', 'a', '$']
+Step 7 # Rule 2 : Q < ['a'] | Q ['a', 'a', 'a', 'a', 'a', 'a', '$']
+Step 8 # Rule 3 : Q > ['a'] | Q ['a', 'a', 'a', 'a', 'a', '$']
+Step 9 # Rule 3 : Q > ['a'] | Q ['a', 'a', 'a', 'a', '$']
+Rejected
+
+
+String: <<<>>>>>$
+Step 1 # Rule 1 : S < ~ | Q ['$']
+Step 2 # Rule 2 : Q < ['$'] | Q ['a', '$']
+Step 3 # Rule 2 : Q < ['a'] | Q ['a', 'a', '$']
+Step 4 # Rule 2 : Q < ['a'] | Q ['a', 'a', 'a', '$']
+Step 5 # Rule 3 : Q > ['a'] | Q ['a', 'a', '$']
+Step 6 # Rule 3 : Q > ['a'] | Q ['a', '$']
+Step 7 # Rule 3 : Q > ['a'] | Q ['$']
+Rejected
+

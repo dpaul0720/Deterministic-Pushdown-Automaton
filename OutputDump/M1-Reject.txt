@@ -1,0 +1,78 @@
+M1: DFA ported from Project 1 M1
+Rule #1 : q1,0,~|q1,~
+Rule #2 : q1,1,~|q2,~
+Rule #3 : q2,1,~|q2,~
+Rule #4 : q2,0,~|q3,~
+Rule #5 : q3,0,~|q2,~
+Rule #6 : q3,1,~|q2,~
+
+
+String: 0
+Step 1 # Rule 1 : q1 0 ~ | q1 ~
+Rejected
+
+
+String: 010
+Step 1 # Rule 1 : q1 0 ~ | q1 ~
+Step 2 # Rule 2 : q1 1 ~ | q2 ~
+Step 3 # Rule 4 : q2 0 ~ | q3 ~
+Rejected
+
+
+String: 11000
+Step 1 # Rule 2 : q1 1 ~ | q2 ~
+Step 2 # Rule 3 : q2 1 ~ | q2 ~
+Step 3 # Rule 4 : q2 0 ~ | q3 ~
+Step 4 # Rule 5 : q3 0 ~ | q2 ~
+Step 5 # Rule 4 : q2 0 ~ | q3 ~
+Rejected
+
+
+String: 01010101010
+Step 1 # Rule 1 : q1 0 ~ | q1 ~
+Step 2 # Rule 2 : q1 1 ~ | q2 ~
+Step 3 # Rule 4 : q2 0 ~ | q3 ~
+Step 4 # Rule 6 : q3 1 ~ | q2 ~
+Step 5 # Rule 4 : q2 0 ~ | q3 ~
+Step 6 # Rule 6 : q3 1 ~ | q2 ~
+Step 7 # Rule 4 : q2 0 ~ | q3 ~
+Step 8 # Rule 6 : q3 1 ~ | q2 ~
+Step 9 # Rule 4 : q2 0 ~ | q3 ~
+Step 10 # Rule 6 : q3 1 ~ | q2 ~
+Step 11 # Rule 4 : q2 0 ~ | q3 ~
+Rejected
+
+
+String: 01000
+Step 1 # Rule 1 : q1 0 ~ | q1 ~
+Step 2 # Rule 2 : q1 1 ~ | q2 ~
+Step 3 # Rule 4 : q2 0 ~ | q3 ~
+Step 4 # Rule 5 : q3 0 ~ | q2 ~
+Step 5 # Rule 4 : q2 0 ~ | q3 ~
+Rejected
+
+
+String: 11000
+Step 1 # Rule 2 : q1 1 ~ | q2 ~
+Step 2 # Rule 3 : q2 1 ~ | q2 ~
+Step 3 # Rule 4 : q2 0 ~ | q3 ~
+Step 4 # Rule 5 : q3 0 ~ | q2 ~
+Step 5 # Rule 4 : q2 0 ~ | q3 ~
+Rejected
+
+
+String: 010100111000
+Step 1 # Rule 1 : q1 0 ~ | q1 ~
+Step 2 # Rule 2 : q1 1 ~ | q2 ~
+Step 3 # Rule 4 : q2 0 ~ | q3 ~
+Step 4 # Rule 6 : q3 1 ~ | q2 ~
+Step 5 # Rule 4 : q2 0 ~ | q3 ~
+Step 6 # Rule 5 : q3 0 ~ | q2 ~
+Step 7 # Rule 3 : q2 1 ~ | q2 ~
+Step 8 # Rule 3 : q2 1 ~ | q2 ~
+Step 9 # Rule 3 : q2 1 ~ | q2 ~
+Step 10 # Rule 4 : q2 0 ~ | q3 ~
+Step 11 # Rule 5 : q3 0 ~ | q2 ~
+Step 12 # Rule 4 : q2 0 ~ | q3 ~
+Rejected
+
